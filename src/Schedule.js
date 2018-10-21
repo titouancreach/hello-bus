@@ -20,7 +20,7 @@ export default ({schedule}) => {
           <div className="ml3 i">{distanceInWordsToNow(departure)}</div>
         </div>
       ))}
-      <Link to="/" className="no-underline white f1 ma3">
+      <Link to="/" className="no-underline white f1 ma3-ns ma1">
         <FontAwesomeIcon icon="arrow-circle-left" />
       </Link>
     </>

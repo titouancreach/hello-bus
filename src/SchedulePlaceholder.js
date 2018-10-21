@@ -22,7 +22,7 @@ export default () => {
           </div>
         </div>
       ))}
-      <Link to="/" className="no-underline white f1 ma3">
+      <Link to="/" className="no-underline white f1 ma3-ns ma1">
         <FontAwesomeIcon icon="arrow-circle-left" />
       </Link>
     </>
