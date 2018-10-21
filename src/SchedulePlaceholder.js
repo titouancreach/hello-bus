@@ -13,7 +13,7 @@ export default () => {
         <div
           key={i}
           className={cx(
-            'white flex-auto flex ma2 shadow-1 card-transition button weight w-100 mw6 no-underline items-center ph3',
+            'white flex-auto flex ma2-ns ma1 shadow-1 card-transition button weight w-100 mw6 no-underline items-center ph3',
             css({background: '#ce352C'})
           )}
         >
