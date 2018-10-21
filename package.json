@@ -9,7 +9,6 @@
     "axios": "^0.18.0",
     "date-fns": "^1.29.0",
     "emotion": "^9.2.12",
-    "i": "^0.3.6",
     "npm": "^6.4.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
@@ -36,5 +35,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "prettier": "^1.14.3"
+  }
 }
