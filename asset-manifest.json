@@ -1,0 +1,15 @@
+{
+  "main.css": "/hello-bus/static/css/main.e360641d.chunk.css",
+  "main.js": "/hello-bus/static/js/main.15362e10.chunk.js",
+  "main.js.map": "/hello-bus/static/js/main.15362e10.chunk.js.map",
+  "static/css/1.e3abf2ad.chunk.css": "/hello-bus/static/css/1.e3abf2ad.chunk.css",
+  "static/js/1.d0b3af45.chunk.js": "/hello-bus/static/js/1.d0b3af45.chunk.js",
+  "static/js/1.d0b3af45.chunk.js.map": "/hello-bus/static/js/1.d0b3af45.chunk.js.map",
+  "runtime~main.js": "/hello-bus/static/js/runtime~main.61ee716e.js",
+  "runtime~main.js.map": "/hello-bus/static/js/runtime~main.61ee716e.js.map",
+  "static/css/1.e3abf2ad.chunk.css.map": "/hello-bus/static/css/1.e3abf2ad.chunk.css.map",
+  "static/css/main.e360641d.chunk.css.map": "/hello-bus/static/css/main.e360641d.chunk.css.map",
+  "index.html": "/hello-bus/index.html",
+  "precache-manifest.6072cd7a7ae6c42aca7943e3a3f62aad.js": "/hello-bus/precache-manifest.6072cd7a7ae6c42aca7943e3a3f62aad.js",
+  "service-worker.js": "/hello-bus/service-worker.js"
+}
