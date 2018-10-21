@@ -67,6 +67,12 @@ class ScheduleContainer extends React.Component {
           isFetching: false,
         })
       })
+      .catch(() => {
+        this.setState({
+          isFetching: false,
+          schedule: [],
+        })
+      })
   }
 
   componentDidUpdate(prevProps) {
