@@ -47,9 +47,14 @@ const makeQuery = (lines, stop) => {
 class ScheduleContainer extends React.Component {
   state = {
     schedule: [],
+    isFetching: false,
   }
 
-  componentDidMount() {
+  fetch = () => {
+    this.setState({
+      isFetching: true,
+    })
+
     const {line, stop} = this.props.match.params
     const lines = makePair(line)
     const q = makeQuery(lines, stop)
@@ -59,12 +64,25 @@ class ScheduleContainer extends React.Component {
       .then(({data}) => {
         this.setState({
           schedule: parseQuery(data),
+          isFetching: false,
         })
       })
   }
 
+  componentDidUpdate(prevProps) {
+    const {line: prevLine, stop: prevStop} = prevProps.match.params
+    const {line, stop} = this.props.match.params
+    if (line !== prevLine || stop !== prevStop) {
+      this.fetch()
+    }
+  }
+
+  componentDidMount() {
+    this.fetch()
+  }
+
   render() {
-    return this.state.schedule.length ? (
+    return !this.state.isFetching && this.state.schedule.length ? (
       <Schedule schedule={this.state.schedule} />
     ) : (
       <SchedulePlaceholder />
