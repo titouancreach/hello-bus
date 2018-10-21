@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/hello-bus/static/css/1.e3abf2ad.chunk.css"
   },
   {
-    "revision": "26795bec60f5fd2aea471464ebd6f0e1",
+    "revision": "c9b51a620934bcc32f690e51274ec1fb",
     "url": "/hello-bus/index.html"
   }
 ];
