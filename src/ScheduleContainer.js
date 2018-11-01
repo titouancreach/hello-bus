@@ -1,59 +1,43 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {withRouter} from 'react-router-dom'
 import Schedule from './Schedule'
 import SchedulePlaceholder from './SchedulePlaceholder'
 
 import fetchSchedule from './fetchSchedule'
 
-class ScheduleContainer extends React.Component {
-  state = {
-    schedule: [],
-    isFetching: false,
-  }
+function useSchedule(line, stop) {
+  const [isFetching, setIsFetching] = useState(false)
+  const [schedule, setSchedule] = useState([])
 
-  fetch = () => {
-    this.setState({
-      isFetching: true,
-    })
-
-    const {line, stop} = this.props.match.params
-    fetchSchedule(line, stop)
-      .then(data => {
-        this.setState({
-          schedule: data,
+  useEffect(
+    () => {
+      setIsFetching(true)
+      fetchSchedule(line, stop)
+        .then(data => {
+          setSchedule(data)
         })
-      })
-      .catch(() => {
-        this.setState({
-          schedule: [],
+        .catch(() => {
+          setSchedule([])
         })
-      })
-      .finally(() => {
-        this.setState({
-          isFetching: false,
+        .finally(() => {
+          setIsFetching(false)
         })
-      })
-  }
+    },
+    [line, stop]
+  )
 
-  componentDidUpdate(prevProps) {
-    const {line: prevLine, stop: prevStop} = prevProps.match.params
-    const {line, stop} = this.props.match.params
-    if (line !== prevLine || stop !== prevStop) {
-      this.fetch()
-    }
-  }
+  return [isFetching, schedule]
+}
 
-  componentDidMount() {
-    this.fetch()
-  }
+function ScheduleContainer({match}) {
+  const {line, stop} = match.params
+  const [isFetching, schedule] = useSchedule(line, stop)
 
-  render() {
-    return !this.state.isFetching && this.state.schedule.length ? (
-      <Schedule schedule={this.state.schedule} />
-    ) : (
-      <SchedulePlaceholder />
-    )
-  }
+  return !isFetching && schedule.length ? (
+    <Schedule schedule={schedule} />
+  ) : (
+    <SchedulePlaceholder />
+  )
 }
 
 export default withRouter(ScheduleContainer)
