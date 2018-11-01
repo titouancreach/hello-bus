@@ -6,7 +6,7 @@ import {cx, css} from 'emotion'
 
 import {cardTransition, mauto} from './style'
 
-export default function() {
+function Home() {
   return (
     <>
       <Link
@@ -42,3 +42,5 @@ export default function() {
     </>
   )
 }
+
+export default Home
