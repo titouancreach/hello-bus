@@ -5,7 +5,7 @@ import {css, cx} from 'emotion'
 import Spinner from 'react-spinkit'
 import {distanceInWordsToNow} from 'date-fns'
 
-import {mauto} from './style'
+import {cardTransition, mauto} from './style'
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
@@ -56,7 +56,7 @@ function ScheduleContainer({match}) {
           <div
             key={id}
             className={cx(
-              'white flex-auto flex ma2-ns ma1 shadow-1 card-transition button weight w-100 mw6 no-underline items-center ph3',
+              `white flex-auto flex ma2-ns ma1 shadow-1 ${cardTransition} button weight w-100 mw6 no-underline items-center ph3`,
               css({background: '#ce352C'})
             )}
           >
