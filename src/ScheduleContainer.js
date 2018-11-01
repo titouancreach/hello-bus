@@ -49,10 +49,6 @@ function ScheduleContainer({match}) {
   const {line, stop} = match.params
   const [isFetching, schedule] = useSchedule(line, stop)
 
-  if (!isFetching) {
-    debugger
-  }
-
   return (
     <>
       {!isFetching ? (
