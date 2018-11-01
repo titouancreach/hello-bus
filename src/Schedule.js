@@ -12,10 +12,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import fetchSchedule from './fetchSchedule'
 
 function useSchedule(line, stop) {
-  const defaultScheduleValue = [...new Array(10)]
-
-  const [isFetching, setIsFetching] = useState(true)
-  const [schedule, setSchedule] = useState(defaultScheduleValue)
+  const [isFetching, setIsFetching] = useState(false)
+  const [schedule, setSchedule] = useState(null)
 
   useEffect(
     () => {
@@ -25,7 +23,7 @@ function useSchedule(line, stop) {
           setSchedule(data)
         })
         .catch(() => {
-          setSchedule(defaultScheduleValue)
+          setSchedule(null)
         })
         .finally(() => {
           setIsFetching(false)
@@ -51,7 +49,7 @@ function ScheduleContainer({match}) {
 
   return (
     <>
-      {!isFetching ? (
+      {!isFetching && schedule ? (
         schedule.map(({idcourse: id, idligne: ligne, departure}) => (
           <div
             key={id}
